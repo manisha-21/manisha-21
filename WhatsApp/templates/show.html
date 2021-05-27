@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Data</title>
+</head>
+<body >
+    {{msg}}
+    <h2 id="head"> Show Message</h2>
+    <div id="SecondDiv">
+        <form action="/">
+            <input type="Submit" value="<< Back">
+            
+            {% csrf_token %}
+    </form>
+    </div>
+    <div id="OneDiv">
+        <table>
+            <thead>
+                <th>Enter Name or Number</th>
+                <th>Enter Message</th>
+                <th>image</th>
+                <th>datetime</th>
+            </thead>
+            {% for d in data %}
+            <tr>
+                <td>{{d.name}}</td>
+                <td>{{d.msg}}</td>
+                <td>{{d.image}}</td>
+                <td>{{d.created_at}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
+       
